@@ -7,7 +7,15 @@ class GetRequester:
         self.url = url
 
     def get_response_body(self):
-        pass
+        # send a GET request to the url
+
+        response= requests.get (self.url)
+        return response.content        
+
 
     def load_json(self):
-        pass
+        # Convert response body to JSON data
+        response_body = self.get_response_body()
+        json_data = json.loads(response_body)
+        
+        return json_data
